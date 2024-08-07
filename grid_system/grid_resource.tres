@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Grid_Resource" load_steps=2 format=3 uid="uid://b8pecrdywkgmt"]
+
+[ext_resource type="Script" path="res://grid_system/grid_resource.gd" id="1_ttslf"]
+
+[resource]
+script = ExtResource("1_ttslf")
+cell_size = 1.0

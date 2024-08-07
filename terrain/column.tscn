@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://mhkgu82rauf2"]
+
+[ext_resource type="PackedScene" uid="uid://bjldq282f1dlh" path="res://grid_system/grid_cell_system/cell.tscn" id="1_hns15"]
+[ext_resource type="PackedScene" uid="uid://bkuumcqpy4y25" path="res://kenney_mini-arena/column.glb" id="2_nmlcu"]
+[ext_resource type="PackedScene" uid="uid://dqgsdb4vxlejw" path="res://kenney_mini-arena/block.glb" id="3_7m547"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wrtvi"]
+size = Vector3(1, 1.40961, 1)
+
+[node name="Column" instance=ExtResource("1_hns15")]
+walkable = true
+manually_connect_cell = false
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.707184, 0)
+shape = SubResource("BoxShape3D_wrtvi")
+
+[node name="CenterOffset" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40263, 0)
+
+[node name="column2" parent="." index="4" instance=ExtResource("2_nmlcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="block2" parent="." index="5" instance=ExtResource("3_7m547")]

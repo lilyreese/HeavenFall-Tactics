@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm0hsx76e14ah"]
+
+[ext_resource type="PackedScene" uid="uid://bjldq282f1dlh" path="res://grid_system/grid_cell_system/cell.tscn" id="1_1qmk0"]
+[ext_resource type="PackedScene" uid="uid://dqgsdb4vxlejw" path="res://kenney_mini-arena/block.glb" id="2_e4su5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5ole"]
+size = Vector3(1, 0.5, 1)
+
+[node name="DirtBlock" instance=ExtResource("1_1qmk0")]
+walkable = true
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_v5ole")
+
+[node name="block2" parent="." index="2" instance=ExtResource("2_e4su5")]
+
+[node name="CenterOffset" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499844, 0)

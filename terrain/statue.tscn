@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyatfwtfg01rl"]
+
+[ext_resource type="PackedScene" uid="uid://bjldq282f1dlh" path="res://grid_system/grid_cell_system/cell.tscn" id="1_jt1om"]
+[ext_resource type="PackedScene" uid="uid://dhygbo0sj86bm" path="res://kenney_mini-arena/statue.glb" id="2_ajop6"]
+
+[node name="Statue" instance=ExtResource("1_jt1om")]
+walkable = null
+
+[node name="statue2" parent="." index="4" instance=ExtResource("2_ajop6")]

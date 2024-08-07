@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://begpgubf0fjqv"]
+
+[ext_resource type="Script" path="res://grid_system/game_grid.gd" id="1_uk4bb"]
+
+[node name="GameGrid" type="Node3D" node_paths=PackedStringArray("debug_pathfinding_starting_cell", "debug_pathfinding_target_cell")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166569, 0, 0)
+script = ExtResource("1_uk4bb")
+debug_pathfinding_starting_cell = NodePath("")
+debug_pathfinding_max_range = 15
+debug_pathfinding_target_cell = NodePath("")

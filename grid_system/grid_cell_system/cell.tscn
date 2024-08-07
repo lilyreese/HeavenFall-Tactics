@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjldq282f1dlh"]
+
+[ext_resource type="Script" path="res://grid_system/grid_cell_system/grid_cell.gd" id="1_ly244"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8k72"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.955137, 0.763401, 1.15514e-06, 0.698039)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bq6kq"]
+material = SubResource("StandardMaterial3D_m8k72")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ee0he"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fnlyv"]
+material = SubResource("StandardMaterial3D_ee0he")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjmg5"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_oky0b"]
+material = SubResource("StandardMaterial3D_pjmg5")
+inner_radius = 0.4
+outer_radius = 0.5
+
+[node name="Cell" type="Node3D" node_paths=PackedStringArray("path_mesh", "selection_mesh", "adjacent_mesh_debug")]
+script = ExtResource("1_ly244")
+cell_coordinates = Vector3(-1, 0, 0)
+manually_connect_cell = null
+path_mesh = NodePath("CenterOffset/PathMesh")
+selection_mesh = NodePath("CenterOffset/SelectionMesh")
+debug = true
+adjacent_mesh_debug = NodePath("CenterOffset/AdjacentMeshDebug")
+
+[node name="Debug" type="Node" parent="."]
+
+[node name="DebugLabel" type="Label3D" parent="Debug"]
+top_level = true
+visible = false
+billboard = 1
+no_depth_test = true
+text = "(0, 0, 0)"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
+[node name="CenterOffset" type="Marker3D" parent="."]
+
+[node name="SelectionMesh" type="MeshInstance3D" parent="CenterOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00346487, 0)
+visible = false
+mesh = SubResource("PlaneMesh_bq6kq")
+skeleton = NodePath("../..")
+
+[node name="PathMesh" type="MeshInstance3D" parent="CenterOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0122133, 0)
+visible = false
+mesh = SubResource("PlaneMesh_fnlyv")
+skeleton = NodePath("../..")
+
+[node name="AdjacentMeshDebug" type="MeshInstance3D" parent="CenterOffset"]
+visible = false
+mesh = SubResource("TorusMesh_oky0b")
+
+[node name="GridSnap" type="Marker3D" parent="."]

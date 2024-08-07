@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Unit_Resource" load_steps=2 format=3 uid="uid://cxh441vbwxmiq"]
+
+[ext_resource type="Script" path="res://grid_object_system/unit_system/unit_resource.gd" id="1_50nvn"]
+
+[resource]
+script = ExtResource("1_50nvn")
+unit_name = "Soldier"
+seconds_per_cell = 0.3
+movement_range = 3

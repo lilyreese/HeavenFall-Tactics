@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://gv6pgqaxycv3"]
+
+[ext_resource type="Script" path="res://grid_object_system/unit_system/unit.gd" id="1_mgspa"]
+[ext_resource type="PackedScene" uid="uid://b6pu7elvo6p4y" path="res://kenney_mini-arena/character-soldier.glb" id="2_ic4rt"]
+[ext_resource type="Resource" uid="uid://cxh441vbwxmiq" path="res://grid_object_system/unit_system/unit.tres" id="2_oafyc"]
+
+[sub_resource type="Curve3D" id="Curve3D_lu2m8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jhsqu"]
+size = Vector3(0.275635, 0.65918, 1)
+
+[node name="Unit" type="Path3D"]
+curve = SubResource("Curve3D_lu2m8")
+script = ExtResource("1_mgspa")
+unit_resource = ExtResource("2_oafyc")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+loop = false
+
+[node name="character-soldier2" parent="PathFollow3D" instance=ExtResource("2_ic4rt")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PathFollow3D"]
+collision_layer = 4096
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330024, 0)
+shape = SubResource("BoxShape3D_jhsqu")
