@@ -26,8 +26,22 @@ shadow_enabled = true
 
 [node name="GameBoard" parent="." instance=ExtResource("1_4t1wy")]
 
-[node name="Unit2" parent="GameBoard/UnitsContainer" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6666, 1.40263, 3.88531)
+[node name="GameGrid" parent="GameBoard" index="0" node_paths=PackedStringArray("grid_cells", "debug_pathfinding_starting_cell", "debug_pathfinding_target_cell")]
+grid_cells = [NodePath("DirtBlock"), NodePath("DirtBlock2"), NodePath("DirtBlock3"), NodePath("DirtBlock5"), NodePath("DirtBlock6"), NodePath("DirtBlock4"), NodePath("DirtBlock7"), NodePath("DirtBlock8"), NodePath("DirtBlock9"), NodePath("DirtBlock10"), NodePath("DirtBlock11"), NodePath("DirtBlock12"), NodePath("DirtBlock13"), NodePath("DirtBlock14"), NodePath("DirtBlock15"), NodePath("DirtBlock16"), NodePath("DirtBlock17"), NodePath("DirtBlock18"), NodePath("DirtBlock19"), NodePath("DirtBlock20"), NodePath("DirtBlock21"), NodePath("DirtBlock22"), NodePath("DirtBlock23"), NodePath("DirtBlock29"), NodePath("DirtBlock30"), NodePath("DirtBlock31"), NodePath("DirtBlock32"), NodePath("DirtBlock36"), NodePath("DirtBlock33"), NodePath("DirtBlock34"), NodePath("DirtBlock35"), NodePath("DirtBlock25"), NodePath("DirtBlock26"), NodePath("DirtBlock27"), NodePath("DirtBlock28"), NodePath("DirtBlock24"), NodePath("Stair"), NodePath("Stair2"), NodePath("Stair3"), NodePath("Stair4"), NodePath("Stair5"), NodePath("Column"), NodePath("Column2"), NodePath("Column3")]
+debug_pathfinding_starting_cell = NodePath("DirtBlock19")
+debug_pathfinding_max_range = 3
+debug_pathfinding_target_cell = NodePath("DirtBlock3")
+
+[node name="DirtBlock19" parent="GameBoard/GameGrid" index="18" node_paths=PackedStringArray("current_object")]
+current_object = NodePath("../../UnitsContainer/Unit")
+has_object = true
+
+[node name="DirtBlock27" parent="GameBoard/GameGrid" index="33"]
+has_object = false
+
+[node name="Unit" parent="GameBoard/UnitsContainer" index="0" node_paths=PackedStringArray("current_cell")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66657, 0.499844, 5.5)
+current_cell = NodePath("../../GameGrid/DirtBlock19")
 
 [editable path="GameBoard"]
 [editable path="GameBoard/GameGrid"]

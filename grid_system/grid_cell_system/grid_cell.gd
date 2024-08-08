@@ -125,7 +125,7 @@ func _update_debug_label() -> void:
 	if !debug_label:
 		return
 	debug_label.global_position = center_offset.global_position
-	debug_label.text = str(cell_coordinates)
+	debug_label.text = str(name, '\n', cell_coordinates, '\n', current_cell_depth)
 
 func _set_cell_selection_hint(value:bool) -> void:
 	cell_selection_hint = value

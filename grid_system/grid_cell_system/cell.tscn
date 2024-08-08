@@ -31,7 +31,6 @@ outer_radius = 0.5
 [node name="Cell" type="Node3D" node_paths=PackedStringArray("path_mesh", "selection_mesh", "adjacent_mesh_debug")]
 script = ExtResource("1_ly244")
 cell_coordinates = Vector3(-1, 0, 0)
-manually_connect_cell = null
 path_mesh = NodePath("CenterOffset/PathMesh")
 selection_mesh = NodePath("CenterOffset/SelectionMesh")
 debug = true
@@ -44,6 +43,7 @@ top_level = true
 visible = false
 billboard = 1
 no_depth_test = true
+render_priority = 10
 text = "(0, 0, 0)"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

@@ -15,6 +15,7 @@ script = ExtResource("1_mgspa")
 unit_resource = ExtResource("2_oafyc")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
+rotation_mode = 1
 loop = false
 
 [node name="character-soldier2" parent="PathFollow3D" instance=ExtResource("2_ic4rt")]

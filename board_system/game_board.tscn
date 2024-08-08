@@ -12,328 +12,324 @@
 [node name="GameBoard" type="Node3D"]
 script = ExtResource("1_igefk")
 
-[node name="GameGrid" parent="." node_paths=PackedStringArray("grid_cells") instance=ExtResource("2_ilr5g")]
-grid_cells = [NodePath("DirtBlock"), NodePath("DirtBlock2"), NodePath("DirtBlock3"), NodePath("DirtBlock5"), NodePath("DirtBlock6"), NodePath("DirtBlock4"), NodePath("DirtBlock7"), NodePath("DirtBlock8"), NodePath("DirtBlock9"), NodePath("DirtBlock10"), NodePath("DirtBlock11"), NodePath("DirtBlock12"), NodePath("DirtBlock13"), NodePath("DirtBlock14"), NodePath("DirtBlock15"), NodePath("DirtBlock16"), NodePath("DirtBlock17"), NodePath("DirtBlock18"), NodePath("DirtBlock19"), NodePath("DirtBlock20"), NodePath("DirtBlock21"), NodePath("DirtBlock22"), NodePath("DirtBlock23"), NodePath("DirtBlock29"), NodePath("DirtBlock30"), NodePath("DirtBlock31"), NodePath("DirtBlock32"), NodePath("DirtBlock33"), NodePath("DirtBlock34"), NodePath("DirtBlock35"), NodePath("DirtBlock25"), NodePath("DirtBlock26"), NodePath("DirtBlock27"), NodePath("DirtBlock28"), NodePath("DirtBlock24"), NodePath("Stair"), NodePath("Stair2"), NodePath("Stair3"), NodePath("Stair4"), NodePath("Stair5"), NodePath("Column"), NodePath("Column2"), NodePath("Column3"), NodePath("DirtBlock36")]
+[node name="GameGrid" parent="." instance=ExtResource("2_ilr5g")]
 
 [node name="DirtBlock" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 2.5)
 cell_coordinates = Vector3(4, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock2"), NodePath("../DirtBlock7")]
+debug = false
 
 [node name="DirtBlock2" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 2.5)
 cell_coordinates = Vector3(5, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock"), NodePath("../DirtBlock4"), NodePath("../DirtBlock8")]
+debug = false
 
 [node name="DirtBlock3" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 2.5)
 cell_coordinates = Vector3(7, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
-connected_cells = [NodePath("../DirtBlock4"), NodePath("../DirtBlock5"), NodePath("../DirtBlock9")]
+connected_cells = [NodePath("../DirtBlock5"), NodePath("../DirtBlock4"), NodePath("../DirtBlock9")]
+debug = false
 
 [node name="DirtBlock5" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 2.5)
 cell_coordinates = Vector3(8, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock3"), NodePath("../DirtBlock6"), NodePath("../DirtBlock10")]
+debug = false
 
 [node name="DirtBlock6" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 2.5)
 cell_coordinates = Vector3(9, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
-connected_cells = [NodePath("../Stair"), NodePath("../DirtBlock5"), NodePath("../DirtBlock11")]
+connected_cells = [NodePath("../DirtBlock5"), NodePath("../DirtBlock11"), NodePath("../Stair")]
+debug = false
 
 [node name="DirtBlock4" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 2.5)
 cell_coordinates = Vector3(6, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock2"), NodePath("../DirtBlock3"), NodePath("../DirtBlock12")]
+debug = false
 
 [node name="DirtBlock7" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 3.5)
 cell_coordinates = Vector3(4, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock"), NodePath("../DirtBlock8"), NodePath("../DirtBlock13")]
+debug = false
 
 [node name="DirtBlock8" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 3.5)
 cell_coordinates = Vector3(5, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock2"), NodePath("../DirtBlock7"), NodePath("../DirtBlock12"), NodePath("../DirtBlock14")]
+debug = false
 
 [node name="DirtBlock9" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 3.5)
 cell_coordinates = Vector3(7, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
-connected_cells = [NodePath("../DirtBlock3"), NodePath("../DirtBlock15"), NodePath("../DirtBlock10"), NodePath("../DirtBlock12"), NodePath("../DirtBlock18"), NodePath("../DirtBlock16")]
+connected_cells = [NodePath("../DirtBlock3"), NodePath("../DirtBlock10"), NodePath("../DirtBlock12"), NodePath("../DirtBlock15")]
+debug = false
 
 [node name="DirtBlock10" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 3.5)
 cell_coordinates = Vector3(8, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock5"), NodePath("../DirtBlock9"), NodePath("../DirtBlock11"), NodePath("../DirtBlock16")]
+debug = false
 
 [node name="DirtBlock11" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 3.5)
 cell_coordinates = Vector3(9, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock6"), NodePath("../DirtBlock10"), NodePath("../DirtBlock17"), NodePath("../Stair2")]
+debug = false
 
 [node name="DirtBlock12" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 3.5)
 cell_coordinates = Vector3(6, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
-connected_cells = [NodePath("../DirtBlock4"), NodePath("../DirtBlock8"), NodePath("../DirtBlock18"), NodePath("../DirtBlock9")]
+connected_cells = [NodePath("../DirtBlock4"), NodePath("../DirtBlock8"), NodePath("../DirtBlock9"), NodePath("../DirtBlock18")]
+debug = false
 
 [node name="DirtBlock13" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 4.5)
 cell_coordinates = Vector3(4, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock7"), NodePath("../DirtBlock14"), NodePath("../DirtBlock19")]
+debug = false
 
 [node name="DirtBlock14" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 4.5)
 cell_coordinates = Vector3(5, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock8"), NodePath("../DirtBlock13"), NodePath("../DirtBlock18"), NodePath("../DirtBlock20")]
+debug = false
 
 [node name="DirtBlock15" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 4.5)
 cell_coordinates = Vector3(7, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock9"), NodePath("../DirtBlock16"), NodePath("../DirtBlock18"), NodePath("../DirtBlock21")]
+debug = false
 
 [node name="DirtBlock16" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 4.5)
 cell_coordinates = Vector3(8, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock10"), NodePath("../DirtBlock15"), NodePath("../DirtBlock17"), NodePath("../DirtBlock22")]
+debug = false
 
 [node name="DirtBlock17" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 4.5)
 cell_coordinates = Vector3(9, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock11"), NodePath("../DirtBlock16"), NodePath("../DirtBlock23"), NodePath("../Stair3")]
+debug = false
 
 [node name="DirtBlock18" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 4.5)
 cell_coordinates = Vector3(6, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock12"), NodePath("../DirtBlock14"), NodePath("../DirtBlock15"), NodePath("../DirtBlock24")]
+debug = false
 
 [node name="DirtBlock19" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 5.5)
 cell_coordinates = Vector3(4, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock13"), NodePath("../DirtBlock20")]
+debug = false
 
 [node name="DirtBlock20" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 5.5)
 cell_coordinates = Vector3(5, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock14"), NodePath("../DirtBlock19"), NodePath("../DirtBlock24")]
+debug = false
 
 [node name="DirtBlock21" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 5.5)
 cell_coordinates = Vector3(7, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock15"), NodePath("../DirtBlock22"), NodePath("../DirtBlock24")]
+debug = false
 
 [node name="DirtBlock22" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 5.5)
 cell_coordinates = Vector3(8, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock16"), NodePath("../DirtBlock21"), NodePath("../DirtBlock23")]
+debug = false
 
 [node name="DirtBlock23" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 5.5)
 cell_coordinates = Vector3(9, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock17"), NodePath("../DirtBlock22"), NodePath("../Stair4")]
+debug = false
 
 [node name="DirtBlock29" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 5.5)
 cell_coordinates = Vector3(13, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../Stair5"), NodePath("../DirtBlock30")]
+debug = false
 
 [node name="DirtBlock30" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 5.5)
 cell_coordinates = Vector3(14, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock29"), NodePath("../DirtBlock31")]
+debug = false
 
 [node name="DirtBlock31" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 4.5)
 cell_coordinates = Vector3(14, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock30"), NodePath("../DirtBlock32")]
+debug = false
 
 [node name="DirtBlock32" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, 4.5)
 cell_coordinates = Vector3(15, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock31"), NodePath("../DirtBlock33"), NodePath("../DirtBlock36")]
+debug = false
 
 [node name="DirtBlock36" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0, 4.5)
 cell_coordinates = Vector3(16, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 both_ways_connection = true
 connected_cells = [NodePath("../DirtBlock32")]
+debug = false
 
 [node name="DirtBlock33" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, 3.5)
 cell_coordinates = Vector3(15, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock32"), NodePath("../DirtBlock34")]
+debug = false
 
 [node name="DirtBlock34" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, 2.5)
 cell_coordinates = Vector3(15, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock33"), NodePath("../DirtBlock35")]
+debug = false
 
 [node name="DirtBlock35" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 2.5)
 cell_coordinates = Vector3(14, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock34")]
+debug = false
 
 [node name="DirtBlock25" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.492283, 5.5)
 cell_coordinates = Vector3(11, 0, 5)
-manually_connect_cell = false
 connected_cells = [NodePath("../Stair4"), NodePath("../DirtBlock26"), NodePath("../Stair5")]
+debug = false
 
 [node name="DirtBlock26" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.492283, 4.5)
 cell_coordinates = Vector3(11, 0, 4)
-manually_connect_cell = false
 connected_cells = [NodePath("../Stair3"), NodePath("../DirtBlock25"), NodePath("../DirtBlock27")]
+debug = false
 
-[node name="DirtBlock27" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
+[node name="DirtBlock27" parent="GameGrid" node_paths=PackedStringArray("current_object", "connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.492283, 3.5)
+current_object = NodePath("../../UnitsContainer/Unit")
+has_object = true
 cell_coordinates = Vector3(11, 0, 3)
-manually_connect_cell = false
 connected_cells = [NodePath("../Column"), NodePath("../Stair2"), NodePath("../DirtBlock26"), NodePath("../DirtBlock28")]
+debug = false
 
 [node name="DirtBlock28" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.492283, 2.5)
 cell_coordinates = Vector3(11, 0, 2)
-manually_connect_cell = false
 connected_cells = [NodePath("../Stair"), NodePath("../DirtBlock27")]
+debug = false
 
 [node name="DirtBlock24" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_yjnut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 5.5)
 cell_coordinates = Vector3(6, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock18"), NodePath("../DirtBlock20"), NodePath("../DirtBlock21")]
+debug = false
 
 [node name="Stair" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_lbb2t")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.5, 0, 2.5)
 cell_coordinates = Vector3(10, 0, 2)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock6"), NodePath("../Stair2"), NodePath("../DirtBlock28")]
+debug = false
 
 [node name="Stair2" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_lbb2t")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.5, 0, 3.5)
 cell_coordinates = Vector3(10, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../Stair"), NodePath("../DirtBlock11"), NodePath("../Stair3"), NodePath("../DirtBlock27")]
+debug = false
 
 [node name="Stair3" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_lbb2t")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.5, 0, 4.5)
 cell_coordinates = Vector3(10, 0, 4)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock17"), NodePath("../Stair2"), NodePath("../Stair4"), NodePath("../DirtBlock26")]
+debug = false
 
 [node name="Stair4" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_lbb2t")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.5, 0, 5.5)
 cell_coordinates = Vector3(10, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock23"), NodePath("../Stair3"), NodePath("../DirtBlock25")]
+debug = false
 
 [node name="Stair5" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_lbb2t")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12.5, 0, 5.5)
 cell_coordinates = Vector3(12, 0, 5)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock29"), NodePath("../DirtBlock25")]
+debug = false
 
 [node name="Column" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_3s7uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 3.5)
 cell_coordinates = Vector3(12, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock27"), NodePath("../Column2")]
+debug = false
 
-[node name="Column2" parent="GameGrid" node_paths=PackedStringArray("current_object", "connected_cells") instance=ExtResource("5_3s7uf")]
+[node name="Column2" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_3s7uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 3.88531)
-current_object = NodePath("../../UnitsContainer/Unit2")
-has_object = true
 cell_coordinates = Vector3(13, 0, 3)
-manually_connect_cell = false
 connected_cells = [NodePath("../Column"), NodePath("../Column3")]
+debug = false
 
 [node name="Column3" parent="GameGrid" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_3s7uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, 3.5)
 cell_coordinates = Vector3(14, 0, 3)
 snap_to_grid = true
-manually_connect_cell = false
 connected_cells = [NodePath("../DirtBlock31"), NodePath("../DirtBlock33"), NodePath("../DirtBlock35"), NodePath("../Column2")]
+debug = false
 
 [node name="Cursor" parent="." instance=ExtResource("2_ml18k")]
 
 [node name="CameraGimball" parent="." instance=ExtResource("4_da4bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30615, 0.798792, 0.571398)
-
-[node name="CameraGimball2" parent="." instance=ExtResource("4_da4bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30615, 0.798792, 0.571398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3006, 0.798792, 4.21628)
 
 [node name="UnitsContainer" type="Node" parent="."]
 
-[node name="Unit2" parent="UnitsContainer" node_paths=PackedStringArray("current_cell") instance=ExtResource("5_eglcm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6666, 1.40263, 3.88531)
-current_cell = NodePath("../../GameGrid/Column2")
+[node name="Unit" parent="UnitsContainer" node_paths=PackedStringArray("current_cell") instance=ExtResource("5_eglcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6666, 0.992127, 3.5)
+current_cell = NodePath("../../GameGrid/DirtBlock27")
 
 [node name="GridObjectsContainer" type="Node" parent="."]
 

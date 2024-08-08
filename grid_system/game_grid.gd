@@ -121,7 +121,7 @@ func _set_debug(value:bool) -> void:
 	
 	if !Engine.is_editor_hint():
 		return
-			
+
 	for cell:Grid_Cell in grid_cells:
 		cell.debug = debug
 

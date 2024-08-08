@@ -18,17 +18,24 @@ func get_reachable_cells_in_range(starting_cell:Grid_Cell, max_range:int) -> Arr
 		visited_cells.append(current_cell)
 		
 		for neighbor:Grid_Cell in current_cell.connected_cells:
+			var simulated_depth = current_cell.current_cell_depth + 1
+			
 			if visited_cells.has(neighbor):
 				continue
-				
+			
+			if simulated_depth > max_range:
+				continue
+			
 			if neighbor.has_object:
 				continue
-			
-			neighbor.current_cell_depth = current_cell.current_cell_depth + 1
-
-			if neighbor.current_cell_depth > max_range:
-				continue
-			
+				
+			if stack.has(neighbor):
+				if neighbor.current_cell_depth <= simulated_depth:
+					continue
+				else:
+					stack.erase(neighbor)
+					
+			neighbor.current_cell_depth = simulated_depth
 			neighbor.current_parent_cell = current_cell
 			stack.append(neighbor)		
 	

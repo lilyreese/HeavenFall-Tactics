@@ -43,4 +43,3 @@ func _on_cursor_moved(new_cell:Grid_Cell) -> void:
 	if selected_cell:
 		if selected_cell.has_object:
 			game_grid.fill_path_hint_to_cell(selected_cell, new_cell)
-	
