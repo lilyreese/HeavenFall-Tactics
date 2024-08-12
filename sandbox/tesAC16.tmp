@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://blr6nfvqkvssr"]
+
+[ext_resource type="PackedScene" uid="uid://d2xofglmoyxgm" path="res://board_system/game_board.tscn" id="1_4t1wy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1qo0y"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_7blwd"]
+sky_material = SubResource("ProceduralSkyMaterial_1qo0y")
+
+[sub_resource type="Environment" id="Environment_aqiy4"]
+background_mode = 2
+sky = SubResource("Sky_7blwd")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestZone" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aqiy4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GameBoard" parent="." instance=ExtResource("1_4t1wy")]
+
+[node name="GameGrid" parent="GameBoard" index="0" node_paths=PackedStringArray("grid_cells", "debug_pathfinding_starting_cell", "debug_pathfinding_target_cell")]
+grid_cells = [NodePath("DirtBlock"), NodePath("DirtBlock2"), NodePath("DirtBlock3"), NodePath("DirtBlock5"), NodePath("DirtBlock6"), NodePath("DirtBlock4"), NodePath("DirtBlock7"), NodePath("DirtBlock8"), NodePath("DirtBlock9"), NodePath("DirtBlock10"), NodePath("DirtBlock11"), NodePath("DirtBlock12"), NodePath("DirtBlock13"), NodePath("DirtBlock14"), NodePath("DirtBlock15"), NodePath("DirtBlock16"), NodePath("DirtBlock17"), NodePath("DirtBlock18"), NodePath("DirtBlock19"), NodePath("DirtBlock20"), NodePath("DirtBlock21"), NodePath("DirtBlock22"), NodePath("DirtBlock23"), NodePath("DirtBlock29"), NodePath("DirtBlock30"), NodePath("DirtBlock31"), NodePath("DirtBlock32"), NodePath("DirtBlock36"), NodePath("DirtBlock33"), NodePath("DirtBlock34"), NodePath("DirtBlock35"), NodePath("DirtBlock25"), NodePath("DirtBlock26"), NodePath("DirtBlock27"), NodePath("DirtBlock28"), NodePath("DirtBlock24"), NodePath("Stair"), NodePath("Stair2"), NodePath("Stair3"), NodePath("Stair4"), NodePath("Stair5"), NodePath("Column"), NodePath("Column2"), NodePath("Column3")]
+debug_pathfinding_starting_cell = NodePath("DirtBlock19")
+debug_pathfinding_max_range = 3
+debug_pathfinding_target_cell = NodePath("DirtBlock3")
+
+[node name="DirtBlock19" parent="GameBoard/GameGrid" index="18" node_paths=PackedStringArray("current_object")]
+current_object = NodePath("../../UnitsContainer/Unit")
+has_object = true
+
+[node name="DirtBlock27" parent="GameBoard/GameGrid" index="33"]
+has_object = false
+
+[node name="Unit" parent="GameBoard/UnitsContainer" index="0" node_paths=PackedStringArray("current_cell")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66657, 0.499844, 5.5)
+current_cell = NodePath("../../GameGrid/DirtBlock19")
+
+[editable path="GameBoard"]
+[editable path="GameBoard/GameGrid"]

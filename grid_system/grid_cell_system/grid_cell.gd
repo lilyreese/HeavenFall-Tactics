@@ -38,10 +38,15 @@ var current_parent_cell:Grid_Cell = null
 @export_category('Visual Overlays')
 @export var path_mesh: MeshInstance3D
 @export var selection_mesh: MeshInstance3D
+@export var aoe_mesh: MeshInstance3D
+
 @export var cell_selection_hint:bool = false:
 	set = _set_cell_selection_hint
 @export var cell_path_hint:bool = false:
 	set = _set_cell_path_hint
+@export var cell_aoe_hint:bool = false:
+	set = _set_cell_aoe_hint
+
 
 @export_category('Debug')
 @export var debug:bool:
@@ -138,6 +143,10 @@ func _set_cell_path_hint(value:bool) -> void:
 	cell_path_hint = value
 	path_mesh.visible = cell_path_hint
 
+func _set_cell_aoe_hint(value:bool) -> void:
+	cell_aoe_hint = value
+	aoe_mesh.visible = cell_aoe_hint
+	
 func reset_cell_pathfinding() -> void:
 	current_cell_depth = 0
 	current_parent_cell = null

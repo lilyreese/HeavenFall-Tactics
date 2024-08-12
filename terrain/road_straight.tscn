@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3pewwn8mjv56"]
+
+[ext_resource type="PackedScene" uid="uid://bjldq282f1dlh" path="res://grid_system/grid_cell_system/cell.tscn" id="1_oym6e"]
+[ext_resource type="PackedScene" uid="uid://d0py4lfwdwvl3" path="res://kenney_roads/road_straight.glb" id="2_hdkwp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cefsw"]
+size = Vector3(1, 0.055603, 1)
+
+[node name="RoadStraight" instance=ExtResource("1_oym6e")]
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00723267, 0)
+shape = SubResource("BoxShape3D_cefsw")
+
+[node name="CenterOffset" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0174969, 0)
+
+[node name="road_straight" parent="." index="4" instance=ExtResource("2_hdkwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.749279)

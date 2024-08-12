@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3xx3adow2aor"]
+
+[ext_resource type="PackedScene" uid="uid://bjldq282f1dlh" path="res://grid_system/grid_cell_system/cell.tscn" id="1_p6r30"]
+[ext_resource type="PackedScene" uid="uid://skm2w8jdfy3e" path="res://kenney_buildings/large_buildingC.glb" id="2_wiikv"]
+
+[node name="LargeBuildingC" instance=ExtResource("1_p6r30")]
+
+[node name="CenterOffset" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6049, 0)
+
+[node name="large_buildingC2" parent="." index="4" instance=ExtResource("2_wiikv")]

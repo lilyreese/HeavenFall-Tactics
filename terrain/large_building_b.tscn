@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://da1shjnn1x5gl"]
+
+[ext_resource type="PackedScene" uid="uid://bjldq282f1dlh" path="res://grid_system/grid_cell_system/cell.tscn" id="1_if3bk"]
+[ext_resource type="PackedScene" uid="uid://ogvm4vmq77lg" path="res://kenney_buildings/large_buildingB.glb" id="2_0noy8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqe4d"]
+size = Vector3(0.786133, 1.02319, 0.773193)
+
+[node name="LargeBuildingB" instance=ExtResource("1_if3bk")]
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18081, 0)
+shape = SubResource("BoxShape3D_pqe4d")
+
+[node name="CenterOffset" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00462294, 1.62607, -0.000201941)
+
+[node name="large_buildingB2" parent="." index="4" instance=ExtResource("2_0noy8")]

@@ -40,16 +40,16 @@ func _cast_ray_to_ground() -> void:
 	if !result:
 		_over_valid_cell = false
 		mesh_instance_3d.hide()
-		return
-	
-	mesh_instance_3d.show()
-	_over_valid_cell = true
-	current_cell = result['collider'].owner
-	
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT_IN)
-	tween.set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(self, "global_position", current_cell.center_offset.global_position, 0.1)
+		current_cell = null
+	else:
+		mesh_instance_3d.show()
+		_over_valid_cell = true
+		current_cell = result['collider'].owner
+		
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT_IN)
+		tween.set_trans(Tween.TRANS_LINEAR)
+		tween.tween_property(self, "global_position", current_cell.center_offset.global_position, 0.1)
 	
 	cursor_moved.emit(current_cell)
 

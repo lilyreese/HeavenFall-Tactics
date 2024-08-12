@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjldq282f1dlh"]
+[gd_scene load_steps=10 format=3 uid="uid://bjldq282f1dlh"]
 
 [ext_resource type="Script" path="res://grid_system/grid_cell_system/grid_cell.gd" id="1_ly244"]
 
@@ -28,11 +28,22 @@ material = SubResource("StandardMaterial3D_pjmg5")
 inner_radius = 0.4
 outer_radius = 0.5
 
-[node name="Cell" type="Node3D" node_paths=PackedStringArray("path_mesh", "selection_mesh", "adjacent_mesh_debug")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aco28"]
+albedo_color = Color(0.966927, 0.116266, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_ysiev"]
+material = SubResource("StandardMaterial3D_aco28")
+inner_radius = 0.4
+outer_radius = 0.5
+rings = 6
+ring_segments = 6
+
+[node name="Cell" type="Node3D" node_paths=PackedStringArray("path_mesh", "selection_mesh", "aoe_mesh", "adjacent_mesh_debug")]
 script = ExtResource("1_ly244")
 cell_coordinates = Vector3(-1, 0, 0)
 path_mesh = NodePath("CenterOffset/PathMesh")
 selection_mesh = NodePath("CenterOffset/SelectionMesh")
+aoe_mesh = NodePath("CenterOffset/AoeMesh")
 debug = true
 adjacent_mesh_debug = NodePath("CenterOffset/AdjacentMeshDebug")
 
@@ -69,5 +80,9 @@ skeleton = NodePath("../..")
 [node name="AdjacentMeshDebug" type="MeshInstance3D" parent="CenterOffset"]
 visible = false
 mesh = SubResource("TorusMesh_oky0b")
+
+[node name="AoeMesh" type="MeshInstance3D" parent="CenterOffset"]
+visible = false
+mesh = SubResource("TorusMesh_ysiev")
 
 [node name="GridSnap" type="Marker3D" parent="."]

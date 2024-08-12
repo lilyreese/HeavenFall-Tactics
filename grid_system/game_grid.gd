@@ -15,49 +15,63 @@ class_name Game_Grid extends Node3D
 
 @export var debug_pathfinding_target_cell:Grid_Cell
 
-func fill_reachable_cells_from_cell(from:Grid_Cell, max_range:int) -> Array[Grid_Cell]:
-	_clear_selection_hint()
-	_clear_path_hint()
-	_reset_cells_pathfinding_info()
-	
+func get_reachable_cells_from_cell(from:Grid_Cell, max_range:int) -> Array[Grid_Cell]:
 	var pathfinding:Pathfind = Pathfind.new()
 	var reachable_cells:Array[Grid_Cell] = pathfinding.get_reachable_cells_in_range(from, max_range)
-	
-	for cell:Grid_Cell in reachable_cells:
-		cell.cell_selection_hint = true	
-	
 	return reachable_cells
 
-func fill_path_hint_to_cell(from:Grid_Cell, to:Grid_Cell) -> Array[Grid_Cell]:
+
+func get_cell_path_to_cell(from:Grid_Cell, to:Grid_Cell) -> Array[Grid_Cell]:
 	var path_cells:Array[Grid_Cell] = []
 	if !grid_cells.has(to):
 		return path_cells
 		
 	if !to.current_parent_cell:
 		return path_cells
-	
-	_clear_path_hint()
-	
+		
 	var pathfinding:Pathfind = Pathfind.new()
 	path_cells = pathfinding.find_path_to_cell(from, to)
-	
-	for cell:Grid_Cell in path_cells:
-		cell.cell_path_hint = true
-		
+			
 	return path_cells
 
-func _reset_cells_pathfinding_info() -> void:
+func fill_cell_selection_hint(cells:Array[Grid_Cell], clear_old:bool = true) -> void:
+	if clear_old:
+		clear_selection_hint()
+
+	for cell:Grid_Cell in cells:
+		cell.cell_selection_hint = true	
+		
+func clear_selection_hint() -> void:
+	for cell:Grid_Cell in grid_cells:
+		cell.cell_selection_hint = false
+
+func fill_aoe_hint(cells:Array[Grid_Cell], clear_old:bool = true) -> void:
+	if clear_old:
+		clear_aoe_hint()
+	
+	for cell:Grid_Cell in cells:
+		cell.cell_aoe_hint = true
+			
+func clear_aoe_hint() -> void:
+	for cell:Grid_Cell in grid_cells:
+		cell.cell_aoe_hint = false
+		
+func fill_path_hint(cells:Array[Grid_Cell], clear_old:bool = true) -> void:
+	if clear_old:
+		clear_path_hint()
+	for cell:Grid_Cell in cells:
+		cell.cell_path_hint = true
+		
+func clear_path_hint() -> void:
+	for cell:Grid_Cell in grid_cells:
+		cell.cell_path_hint = false
+		
+
+func reset_cells_pathfinding_info() -> void:
 	for cell:Grid_Cell in grid_cells:
 		cell.reset_cell_pathfinding()
 
-func _clear_selection_hint() -> void:
-	for cell:Grid_Cell in grid_cells:
-		cell.cell_selection_hint = false
-		
-func _clear_path_hint() -> void:
-	for cell:Grid_Cell in grid_cells:
-		cell.cell_path_hint = false
-
+# Editor things
 func _enter_tree() -> void:
 	if !child_entered_tree.is_connected(_on_child_entered_tree):
 		child_entered_tree.connect(_on_child_entered_tree)

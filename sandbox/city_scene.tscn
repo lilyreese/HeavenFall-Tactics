@@ -1,0 +1,162 @@
+[gd_scene load_steps=11 format=3 uid="uid://divw5pyy2a8xg"]
+
+[ext_resource type="PackedScene" uid="uid://d2xofglmoyxgm" path="res://board_system/game_board.tscn" id="1_eeobu"]
+[ext_resource type="PackedScene" uid="uid://3pewwn8mjv56" path="res://terrain/road_straight.tscn" id="2_0hmlo"]
+[ext_resource type="Resource" uid="uid://be0siqdnjmxe7" path="res://action_system/actions/punch_action.tres" id="2_51k6o"]
+[ext_resource type="PackedScene" uid="uid://da1shjnn1x5gl" path="res://terrain/large_building_b.tscn" id="3_bo1gs"]
+[ext_resource type="PackedScene" uid="uid://c3xx3adow2aor" path="res://terrain/large_building_c.tscn" id="4_b3dva"]
+[ext_resource type="PackedScene" uid="uid://b5tuyppwmbow4" path="res://terrain/dummy_cell.tscn" id="5_inre6"]
+[ext_resource type="PackedScene" uid="uid://gv6pgqaxycv3" path="res://grid_object_system/unit_system/unit.tscn" id="5_osu2v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7pnnr"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cp8nt"]
+sky_material = SubResource("ProceduralSkyMaterial_7pnnr")
+
+[sub_resource type="Environment" id="Environment_eid6j"]
+background_mode = 2
+sky = SubResource("Sky_cp8nt")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="CityScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eid6j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GameBoard" parent="." instance=ExtResource("1_eeobu")]
+test_action = ExtResource("2_51k6o")
+
+[node name="GameGrid" parent="GameBoard" index="0" node_paths=PackedStringArray("grid_cells")]
+grid_cells = [NodePath("RoadStraight"), NodePath("RoadStraight2"), NodePath("RoadStraight3"), NodePath("RoadStraight4"), NodePath("RoadStraight5"), NodePath("LargeBuildingB"), NodePath("LargeBuildingB2"), NodePath("LargeBuildingB3"), NodePath("LargeBuildingC"), NodePath("LargeBuildingC2"), NodePath("DummyCell"), NodePath("DummyCell3"), NodePath("DummyCell2"), NodePath("DummyCell4"), NodePath("DummyCell5"), NodePath("DummyCell6"), NodePath("DummyCell7"), NodePath("DummyCell8"), NodePath("DummyCell9"), NodePath("DummyCell10")]
+debug = true
+
+[node name="RoadStraight" parent="GameBoard/GameGrid" index="0" node_paths=PackedStringArray("current_object", "connected_cells") instance=ExtResource("2_0hmlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+current_object = NodePath("../../UnitsContainer/Unit")
+has_object = true
+cell_coordinates = Vector3(0, 0, 0)
+snap_to_grid = true
+connected_cells = [NodePath("../RoadStraight2"), NodePath("../DummyCell")]
+
+[node name="RoadStraight2" parent="GameBoard/GameGrid" index="1" node_paths=PackedStringArray("connected_cells") instance=ExtResource("2_0hmlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+cell_coordinates = Vector3(1, 0, 0)
+snap_to_grid = true
+connected_cells = [NodePath("../RoadStraight"), NodePath("../RoadStraight3")]
+
+[node name="RoadStraight3" parent="GameBoard/GameGrid" index="2" node_paths=PackedStringArray("connected_cells") instance=ExtResource("2_0hmlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5)
+cell_coordinates = Vector3(2, 0, 0)
+snap_to_grid = true
+connected_cells = [NodePath("../RoadStraight4"), NodePath("../RoadStraight2"), NodePath("../DummyCell5")]
+
+[node name="RoadStraight4" parent="GameBoard/GameGrid" index="3" node_paths=PackedStringArray("connected_cells") instance=ExtResource("2_0hmlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0.5)
+cell_coordinates = Vector3(3, 0, 0)
+snap_to_grid = true
+connected_cells = [NodePath("../RoadStraight3"), NodePath("../RoadStraight5")]
+
+[node name="RoadStraight5" parent="GameBoard/GameGrid" index="4" node_paths=PackedStringArray("connected_cells") instance=ExtResource("2_0hmlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0.5)
+cell_coordinates = Vector3(4, 0, 0)
+snap_to_grid = true
+connected_cells = [NodePath("../RoadStraight4")]
+
+[node name="LargeBuildingB" parent="GameBoard/GameGrid" index="5" node_paths=PackedStringArray("connected_cells") instance=ExtResource("3_bo1gs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+cell_coordinates = Vector3(0, 0, -1)
+snap_to_grid = true
+connected_cells = [NodePath("../DummyCell3")]
+
+[node name="LargeBuildingB2" parent="GameBoard/GameGrid" index="6" instance=ExtResource("3_bo1gs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.5)
+cell_coordinates = Vector3(3, 0, -1)
+snap_to_grid = true
+both_ways_connection = true
+
+[node name="LargeBuildingB3" parent="GameBoard/GameGrid" index="7" node_paths=PackedStringArray("connected_cells") instance=ExtResource("3_bo1gs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -0.5)
+cell_coordinates = Vector3(4, 0, -1)
+snap_to_grid = true
+connected_cells = [NodePath("../DummyCell10"), NodePath("../DummyCell8"), NodePath("../DummyCell9")]
+
+[node name="LargeBuildingC" parent="GameBoard/GameGrid" index="8" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_b3dva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.5)
+cell_coordinates = Vector3(2, 0, -1)
+snap_to_grid = true
+connected_cells = [NodePath("../DummyCell6"), NodePath("../DummyCell7"), NodePath("../DummyCell2"), NodePath("../LargeBuildingB2")]
+
+[node name="LargeBuildingC2" parent="GameBoard/GameGrid" index="9" node_paths=PackedStringArray("connected_cells") instance=ExtResource("4_b3dva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+cell_coordinates = Vector3(1, 0, -1)
+snap_to_grid = true
+connected_cells = [NodePath("../DummyCell4"), NodePath("../DummyCell5"), NodePath("../DummyCell")]
+
+[node name="DummyCell" parent="GameBoard/GameGrid" index="10" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 0.5, -0.0494001)
+cell_coordinates = Vector3(0, 0, -1)
+connected_cells = [NodePath("../DummyCell3"), NodePath("../DummyCell2"), NodePath("../RoadStraight")]
+
+[node name="DummyCell3" parent="GameBoard/GameGrid" index="11" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 1.5, -0.0494001)
+cell_coordinates = Vector3(0, 1, -1)
+connected_cells = [NodePath("../DummyCell"), NodePath("../LargeBuildingB"), NodePath("../DummyCell4")]
+
+[node name="DummyCell2" parent="GameBoard/GameGrid" index="12" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, 0.5, -0.0494001)
+cell_coordinates = Vector3(1, 0, -1)
+connected_cells = [NodePath("../DummyCell"), NodePath("../DummyCell4"), NodePath("../LargeBuildingC"), NodePath("../DummyCell5")]
+
+[node name="DummyCell4" parent="GameBoard/GameGrid" index="13" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.5, 1.5, -0.0494001)
+cell_coordinates = Vector3(1, 1, -1)
+connected_cells = [NodePath("../DummyCell3"), NodePath("../DummyCell6")]
+
+[node name="DummyCell5" parent="GameBoard/GameGrid" index="14" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.5, 0.5, -0.0494001)
+cell_coordinates = Vector3(2, 0, -1)
+connected_cells = [NodePath("../DummyCell6"), NodePath("../LargeBuildingB2"), NodePath("../DummyCell2"), NodePath("../RoadStraight3")]
+
+[node name="DummyCell6" parent="GameBoard/GameGrid" index="15" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.5, 1.5, -0.0494001)
+cell_coordinates = Vector3(2, 1, -1)
+connected_cells = [NodePath("../DummyCell4"), NodePath("../DummyCell5"), NodePath("../LargeBuildingC"), NodePath("../DummyCell8")]
+
+[node name="DummyCell7" parent="GameBoard/GameGrid" index="16" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.5, 0.5, -0.0494001)
+cell_coordinates = Vector3(3, 0, -1)
+connected_cells = [NodePath("../DummyCell8"), NodePath("../DummyCell9"), NodePath("../LargeBuildingC")]
+
+[node name="DummyCell8" parent="GameBoard/GameGrid" index="17" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.5, 1.5, -0.0494001)
+cell_coordinates = Vector3(3, 1, -1)
+connected_cells = [NodePath("../DummyCell6"), NodePath("../LargeBuildingB2"), NodePath("../DummyCell7"), NodePath("../DummyCell10"), NodePath("../LargeBuildingB3")]
+
+[node name="DummyCell9" parent="GameBoard/GameGrid" index="18" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.5, 0.5, -0.0494001)
+cell_coordinates = Vector3(4, 0, -1)
+connected_cells = [NodePath("../DummyCell10"), NodePath("../DummyCell7"), NodePath("../LargeBuildingB2"), NodePath("../LargeBuildingB3")]
+
+[node name="DummyCell10" parent="GameBoard/GameGrid" index="19" node_paths=PackedStringArray("connected_cells") instance=ExtResource("5_inre6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.5, 1.5, -0.0494001)
+cell_coordinates = Vector3(4, 1, -1)
+connected_cells = [NodePath("../DummyCell8"), NodePath("../LargeBuildingB3"), NodePath("../DummyCell9")]
+
+[node name="CameraGimball" parent="GameBoard" index="2"]
+transform = Transform3D(1, 0.000708925, -0.00055414, -0.000709117, 1, -0.000334193, 0.000553895, 0.000334599, 1, 1.322, 0.05, 0)
+min_zoom = -0.4
+
+[node name="Unit" parent="GameBoard/UnitsContainer" index="0" node_paths=PackedStringArray("current_cell") instance=ExtResource("5_osu2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.0174969, 0.5)
+current_cell = NodePath("../../GameGrid/RoadStraight")
+
+[editable path="GameBoard"]
+[editable path="GameBoard/GameGrid"]
+[editable path="GameBoard/CameraGimball"]
